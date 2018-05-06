@@ -1,0 +1,29 @@
+version: '3'
+services:
+  php:
+    image: jfernancordova/docker-laravel-api-dev
+    depends_on:
+      - db
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+     - "80:80"
+    volumes:
+     - .:/docker-laravel-api-dev
+  db:
+    image: mysql:5.7
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_DATABASE: apiLaravelDocker
+      MYSQL_USER: apiLaravelDocker
+      MYSQL_PASSWORD: apiLaravelDocker
+      MYSQL_ROOT_PASSWORD: apiLaravelDocker
+    volumes:
+      - .docker/local-mysql-datadir:/var/lib/mysql
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: none

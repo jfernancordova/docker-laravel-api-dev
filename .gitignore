@@ -2,3 +2,9 @@
 .env.*.php
 .env.php
 .env
+
+\.docker/local-mysql-datadir/
+
+\.idea/
+
+vendor/

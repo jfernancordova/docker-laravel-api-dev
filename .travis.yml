@@ -1,0 +1,21 @@
+sudo: required
+
+language: php
+
+php:
+  # Test against PHP 7.1.8 version ...
+  - 7.1.8
+
+services:
+  - docker
+
+before_script:
+  - chmod +x ./scripts/runtests.sh
+  - docker-compose -f docker-compose.yml up --build -d
+  - docker ps -a
+  - sleep 30  # wait for Mysql to start
+
+script: ./scripts/runtests.sh
+
+after_script:
+  - docker-compose -f docker-compose.yml down
