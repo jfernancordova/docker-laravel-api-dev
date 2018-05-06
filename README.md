@@ -7,10 +7,8 @@
 * Apache 2
 * MySQL
 * Docker
-
-[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/docker-compose.yml)
  
-## Docker Instructions
+## Docker Environments
 
 ### Swarm Modes
 In the root directory:
@@ -20,18 +18,25 @@ In the root directory:
 In the root directory:
 <pre><code>docker-compose -f docker-compose.yml up --build -d</code></pre>
 
+### PWD 
+With Play with Docker and following the docker instructions, it is easy to deploy and test this environment!
+
+[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/docker-compose-pwd.yml)
+
+## Docker Instructions
+
 ### Execute Laravel Pre-requisites
 In the root directory:
-<pre><code>docker container exec dockerlaravelapidev_php_1 composer install && cp.env.example .env && php artisan key:generate && php artisan migrate</code></pre>
+<pre><code>docker container exec [dockerlaravelapidev_php_1 or container Id] composer install && cp.env.example .env && php artisan key:generate && php artisan migrate</code></pre>
 
 ### How to fix Error: laravel.log could not be opened?
-In the root directory:
+In the root directory or inside the container php:
 <pre><code>chmod -R 775 storage </code></pre>
 * 7 - Owner can write
 * 7 - Group can write
 * 5 - Others cannot write!
 Reference:
-(https://stackoverflow.com/questions/23411520/how-to-fix-error-laravel-log-could-not-be-opened)
+https://stackoverflow.com/questions/23411520/how-to-fix-error-laravel-log-could-not-be-opened
 
 ### API Boilerplate Reference
-(https://github.com/francescomalatesta/laravel-api-boilerplate-jwt/blob/master/readme.md)
+https://github.com/francescomalatesta/laravel-api-boilerplate-jwt/blob/master/readme.md
