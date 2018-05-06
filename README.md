@@ -21,7 +21,6 @@ In the root directory:
 <pre><code>docker-compose -f docker-compose.yml up --build -d</code></pre>
 
 ### Execute Laravel Pre-requisites
-
 In the root directory:
 <pre><code>docker container exec dockerlaravelapidev_php_1 composer install && cp.env.example .env && php artisan key:generate && php artisan migrate</code></pre>
 
