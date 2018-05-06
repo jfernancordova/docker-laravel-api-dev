@@ -10,9 +10,12 @@
  
 ## Docker Environments
 
-### Swarm Modes
-In the root directory:
-<pre><code>docker stack deploy -c docker-compose.yml api-laravel-docker</code></pre>
+### Swarm Mode
+In the root directory and following the Docker instructions:
+<pre><code># Creating mount folder
+mkdir .docker/local-mysql-datadir
+docker stack deploy -c docker-compose.yml api-laravel-docker
+</code></pre>
 
 ### Docker Compose
 In the root directory:
