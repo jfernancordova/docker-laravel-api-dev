@@ -11,16 +11,21 @@
 ## Docker Environments
 
 ### Swarm Mode
-In the root directory and following the Docker instructions:
-<pre><code># Creating mount folder
+Clone this respository and run the following commands:
+```bash
+cd docker-laravel-api-dev/
+# Creating mount folder
 mkdir .docker/local-mysql-datadir
-docker stack deploy -c docker-compose.yml api-laravel-docker
-</code></pre>
-
+docker stack deploy -c docker-compose.yml docker-laravel-api-dev
+# wait for it and follow the docker instructions!...
+```
 ### Docker Compose
-In the root directory:
-<pre><code>docker-compose -f docker-compose.yml up --build -d</code></pre>
-
+Clone this respository and run the following commands:
+```bash
+cd docker-laravel-api-dev/
+docker-compose -f docker-compose.yml up --build -d
+# wait for it to build and follow the docker instructions!...
+```
 ### PWD 
 With Play with Docker and following the docker instructions, it is easy to deploy and test this environment!
 
@@ -30,7 +35,25 @@ With Play with Docker and following the docker instructions, it is easy to deplo
 
 ### Execute Laravel Pre-requisites
 In the root directory:
-<pre><code>docker container exec [dockerlaravelapidev_php_1 or container Id] composer install && cp.env.example .env && php artisan key:generate && php artisan migrate</code></pre>
+```bash
+# container lists
+docker ps
+# next, execute an interactive bash shell on the php container.
+docker container exec -t -i [dockerlaravelapidev_php_1 or container Id] bash
+```
+#### Run the following commands:
+
+## Compose and Swarm Mode
+```bash
+composer install && cp .env.example .env && php artisan key:generate && php artisan migrate
+chmod 755 -R storage
+# foward to the port 80, go to localhost and enjoy! ...
+```
+## Play With Docker (PWD)
+```bash
+composer install && php artisan migrate
+# foward to the port 80, go to localhost and enjoy! ...
+```
 
 ### How to fix Error: laravel.log could not be opened?
 In the root directory or inside the container php:
