@@ -47,12 +47,12 @@ docker container exec -t -i [dockerlaravelapidev_php_1 or container Id] bash
 ```bash
 composer install && cp .env.example .env && php artisan key:generate && php artisan migrate
 chmod 755 -R storage
-# foward to the port 80, go to localhost and enjoy! ...
+# forward to the port 80, go to localhost and enjoy!...
 ```
 ##### Play With Docker (PWD)
 ```bash
 composer install && php artisan migrate
-# foward to the port 80, go to localhost and enjoy! ...
+# forward to the port 80, go to localhost and enjoy!...
 ```
 
 ### How to fix Error: laravel.log could not be opened?
