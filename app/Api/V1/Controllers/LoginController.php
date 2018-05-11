@@ -36,7 +36,9 @@ class LoginController extends Controller
             throw new HttpException(500);
         }
 
-        ApiResponse::response(200, 'Ok',
-            ['token' => $token, 'expires_in' => Auth::guard()->factory()->getTTL() * 60]);
+        return ApiResponse::response(200, 'Ok', [
+            'token' => $token,
+            'expires_in' => Auth::guard()->factory()->getTTL() * 60
+        ]);
     }
 }
