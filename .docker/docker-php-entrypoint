@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# ENVIRONMENT VARIABLES -----------------------------------
+
+	cp /docker-laravel-api-dev/.env.example /docker-laravel-api-dev/.env
+
+# Xdebug
+
+	if [ "${XDEBUG_MODE}" == 1 ] ; then
+		echo 'Installing XDebug...'
+		pecl install xdebug && docker-php-ext-enable xdebug
+		echo 'XDebug installed!'
+	fi
+
+# WAIT FOR MYSQL READY -----------------------------------
+
+	echo 'Checking MySql...'
+	while !(mysqladmin ping --host=$DB_HOST)
+	do
+		sleep 1
+		echo 'Waiting for MySql...'
+	done
+	echo 'MySql ready!'
+
+# MIGRATIONS -----------------------------------
+
+	echo 'Running Migrations...'
+	cd /docker-laravel-api-dev
+	composer install
+	php artisan migrate
+	echo 'Migrations done!'
+
+
+# APACHE -----------------------------------
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+	set -- apache2-foreground "$@"
+fi
+
+exec "$@"
