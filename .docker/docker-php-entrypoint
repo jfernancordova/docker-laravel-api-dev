@@ -4,9 +4,11 @@
 
 	cp /docker-laravel-api-dev/.env.example /docker-laravel-api-dev/.env
 
-# Xdebug
+# Xdebug ----------------------------------------------------
 
 	if [ "${XDEBUG_MODE}" == 1 ] ; then
+		echo 'Installs require-dev dependencies'
+		composer install --no-scripts 
 		echo 'Installing XDebug...'
 		pecl install xdebug && docker-php-ext-enable xdebug
 		echo 'XDebug installed!'
@@ -26,10 +28,9 @@
 
 	echo 'Running Migrations...'
 	cd /docker-laravel-api-dev
-	composer install
+	php artisan key:generate
 	php artisan migrate
 	echo 'Migrations done!'
-
 
 # APACHE -----------------------------------
 

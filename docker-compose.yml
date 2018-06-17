@@ -6,7 +6,7 @@ services:
       APP_NAME: docker-laravel-api-dev
       APP_ENV: local
       APP_DEBUG: "true"
-      APP_KEY: base64:B4svAvz1VlCE6iiaKUy/qlmiV2E5JTj7+kCfS5nJpZI=
+      APP_KEY: 
       APP_LOG_LEVEL: debug
       APP_URL: "http://localhost"
       DB_CONNECTION: mysql
