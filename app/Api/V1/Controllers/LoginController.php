@@ -2,8 +2,6 @@
 
 namespace App\Api\V1\Controllers;
 
-use App\Helpers\ApiResponse;
-use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Tymon\JWTAuth\JWTAuth;
 use App\Http\Controllers\Controller;
@@ -21,7 +19,7 @@ class LoginController extends Controller
      * @param JWTAuth $JWTAuth
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(LoginRequest $request, JWTAuth $JWTAuth): JsonResponse
+    public function login(LoginRequest $request, JWTAuth $JWTAuth)
     {
         $credentials = $request->only(['email', 'password']);
 
@@ -36,9 +34,11 @@ class LoginController extends Controller
             throw new HttpException(500);
         }
 
-        return ApiResponse::response(200, 'Ok', [
-            'token' => $token,
-            'expires_in' => Auth::guard()->factory()->getTTL() * 60
-        ]);
+        return response()
+            ->json([
+                'status' => 'ok',
+                'token' => $token,
+                'expires_in' => Auth::guard()->factory()->getTTL() * 60
+            ]);
     }
 }

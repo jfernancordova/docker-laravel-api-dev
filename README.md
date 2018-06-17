@@ -6,6 +6,7 @@
 * API Laravel Boilerplate 5.5
 * Apache 2
 * MySQL
+* Xdebug
 * Docker
  
 ## Docker Environments
@@ -24,7 +25,7 @@ Clone this respository and run the following commands:
 ```bash
 cd docker-laravel-api-dev/
 docker-compose -f docker-compose.yml up --build -d
-# wait for it to build and follow the docker instructions!...
+# wait for it to build!...
 ```
 ### PWD 
 With Play with Docker and following the docker instructions, it is easy to deploy and test this environment!
@@ -33,36 +34,22 @@ With Play with Docker and following the docker instructions, it is easy to deplo
 
 ## Docker Instructions
 
-### Execute Laravel Pre-requisites
 In the root directory:
 ```bash
 # container lists
 docker ps
-# next, execute an interactive bash shell on the php container.
-docker container exec -t -i [dockerlaravelapidev_php_1 or container Id] bash
-```
-#### Run the following commands:
-
-##### Compose and Swarm Mode
-```bash
-composer install && cp .env.example .env && php artisan key:generate && php artisan migrate
-chmod 755 -R storage
-# forward to the port 80, go to localhost and enjoy!...
-```
-##### Play With Docker (PWD)
-```bash
-composer install && php artisan migrate
-# forward to the port 80, go to localhost and enjoy!...
+# make sure that the docker dockerlaravelapidev_php_1 or php container is (healthy),
+normally the process begins in starting mode (2 or 3 minutes)
 ```
 
-### How to fix Error: laravel.log could not be opened?
-In the root directory or inside the container php:
-<pre><code>chmod -R 775 storage </code></pre>
-* 7 - Owner can write
-* 7 - Group can write
-* 5 - Others cannot write!
-Reference:
-https://stackoverflow.com/questions/23411520/how-to-fix-error-laravel-log-could-not-be-opened
+### Environments
+
+* docker-compose-dev.yml: generate automatically severals folders and require-dev dependencies on your local. (Including Xdebug).
+
+* docker-compose-pwd.yml: you can use it in play with docker and test its process.
+
+* docker-compose-prod.yml: if you are going to use this yaml, make sure to generate the migrations before, however you can modify the entrypoint.
+
 
 ### API Boilerplate Reference
 https://github.com/francescomalatesta/laravel-api-boilerplate-jwt/blob/master/readme.md
