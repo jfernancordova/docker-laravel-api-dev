@@ -1,0 +1,98 @@
+{
+	"info": {
+		"name": "apiLaravelDocker",
+		"_postman_id": "7d5f25d3-239f-4595-aa94-94380953b7b8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1/api/auth/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "José Fernando Cordova ",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jfernancordova@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "apiLaravelDocker",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "jfernancordova3@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "apiLaravelDocker",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -7,7 +7,7 @@
 # Xdebug ----------------------------------------------------
 
 	if [ "${XDEBUG_MODE}" == 1 ] ; then
-		mkdir /docker-laravel-api-dev/.docker/local-mysql-datadir
+		mkdir -p /docker-laravel-api-dev/.docker/local-mysql-datadir
 		echo 'Installs require-dev dependencies'
 		composer install --no-scripts 
 		echo 'Installing XDebug...'
@@ -30,6 +30,7 @@
 	echo 'Running Migrations...'
 	cd /docker-laravel-api-dev
 	php artisan key:generate
+	php artisan jwt:secret -f
 	php artisan migrate
 	echo 'Migrations done!'
 

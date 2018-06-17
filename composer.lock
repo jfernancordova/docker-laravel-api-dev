@@ -2574,36 +2574,6 @@
             "time": "2018-04-26T12:42:15+00:00"
         },
         {
-            "name": "tiendanube/php-sdk",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TiendaNube/tiendanube-php-sdk.git",
-                "reference": "e9b4de76997a7868011609794369e216ab998291"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TiendaNube/tiendanube-php-sdk/zipball/e9b4de76997a7868011609794369e216ab998291",
-                "reference": "e9b4de76997a7868011609794369e216ab998291",
-                "shasum": ""
-            },
-            "require": {
-                "rmccue/requests": ">=1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "TiendaNube": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A PHP SDK for the Tienda Nube/Nuvem Shop API.",
-            "time": "2013-10-13T23:46:00+00:00"
-        },
-        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.1",
             "source": {
