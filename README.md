@@ -30,7 +30,7 @@ docker-compose -f docker-compose.yml up --build -d
 ### PWD 
 With Play with Docker and following the docker instructions, it is easy to deploy and test this environment!
 
-[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/docker-compose-pwd.yml)
+[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/feature/refactoring/docker-compose-pwd.yml)
 
 ## Docker Instructions
 
