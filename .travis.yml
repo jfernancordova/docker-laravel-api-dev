@@ -10,8 +10,9 @@ services:
   - docker
 
 before_script:
-  - docker-compose -f docker-compose-pwd.yml up --build -d
+  - docker-compose -f docker-compose-dev.yml up --build -d
   - docker ps -a
+  - sleep 50
 
 after_script:
-  - docker-compose -f docker-compose-pwd.yml down
+  - docker-compose -f docker-compose-dev.yml down
