@@ -9,7 +9,7 @@ RUN apt-get -y install libmcrypt-dev libzzip-dev zziplib-bin zlib1g-dev
 
 # MySQL client for Initial Tasks
 RUN apt-get update &&\
-	apt-get install -y mysql-client
+        apt-get install -y mysql-client
 
 # docker-php ext-install:
 RUN docker-php-ext-install mcrypt
@@ -50,8 +50,6 @@ RUN chmod 755 /usr/local/bin/docker-php-entrypoint
 
 # mode-root:
 USER root
-#RUN chmod 777 -R storage
-
 
 HEALTHCHECK --interval=50s \
             --timeout=600s \
