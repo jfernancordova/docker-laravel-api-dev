@@ -11,7 +11,7 @@
 
 ## Environments
 
-### To deploy this api boilerplate, there are three options (yaml) and Docker environments with instructions that you should consider:
+To deploy this api boilerplate, there are three options (yaml) and Docker environments with instructions that you should consider:
 
 ### Dev or Local Mode
 * docker-compose-dev.yml: generate automatically folders and require-dev dependencies on your local workspace including Xdebug, however the yaml file has a key called:
