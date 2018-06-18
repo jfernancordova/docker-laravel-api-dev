@@ -1,16 +1,30 @@
-version: '3'
+version: '3.4'
 services:
   php:
-    image: jfernancordova/docker-laravel-api-dev
+    image: jfernancordova/docker-laravel-api-dev:1.0.2
+    environment:
+      APP_NAME: docker-laravel-api-dev
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_KEY: 
+      APP_LOG_LEVEL: debug
+      APP_URL: "http://localhost"
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_DATABASE: apiLaravelDocker
+      DB_USERNAME: apiLaravelDocker
+      DB_PASSWORD: apiLaravelDocker
+      XDEBUG_MODE: 1
     depends_on:
       - db
     deploy:
       mode: replicated
       replicas: 1
     ports:
-     - "80:80"
+      - "80:80"
     volumes:
-     - .:/docker-laravel-api-dev
+      - .:/docker-laravel-api-dev
+
   db:
     image: mysql:5.7
     ports:

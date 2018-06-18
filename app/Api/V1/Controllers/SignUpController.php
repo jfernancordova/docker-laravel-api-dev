@@ -2,10 +2,8 @@
 
 namespace App\Api\V1\Controllers;
 
-use App\Helpers\ApiResponse;
 use Config;
 use App\User;
-use Illuminate\Http\JsonResponse;
 use Tymon\JWTAuth\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Api\V1\Requests\SignUpRequest;
@@ -13,12 +11,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class SignUpController extends Controller
 {
-    /**
-     * @param SignUpRequest $request
-     * @param JWTAuth $JWTAuth
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function signUp(SignUpRequest $request, JWTAuth $JWTAuth): JsonResponse
+    public function signUp(SignUpRequest $request, JWTAuth $JWTAuth)
     {
         $user = new User($request->all());
         if(!$user->save()) {
@@ -26,10 +19,15 @@ class SignUpController extends Controller
         }
 
         if(!Config::get('boilerplate.sign_up.release_token')) {
-            return ApiResponse::response(201, 'Ok');
+            return response()->json([
+                'status' => 'ok'
+            ], 201);
         }
 
         $token = $JWTAuth->fromUser($user);
-        return ApiResponse::response(201, 'Ok', ['token' => $token]);
+        return response()->json([
+            'status' => 'ok',
+            'token' => $token
+        ], 201);
     }
 }
