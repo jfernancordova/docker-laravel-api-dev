@@ -11,7 +11,7 @@ services:
 
 before_script:
   - chmod +x ./scripts/runtests.sh
-  - docker-compose -f docker-compose-dev.yml up --build
+  - docker-compose -f docker-compose-dev.yml up --build -d
   - docker ps -a
   - sleep 30  # wait for Mysql to start
 
