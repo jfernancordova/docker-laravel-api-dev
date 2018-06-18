@@ -9,8 +9,7 @@
         "laravel/framework": "5.5.*",
         "tymon/jwt-auth": "dev-develop",
         "dingo/api": "2.0.0-alpha1",
-        "barryvdh/laravel-cors": "^0.9.3",
-        "tiendanube/php-sdk": ">=1.0"
+        "barryvdh/laravel-cors": "^0.9.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -7,63 +7,71 @@
 * API Laravel Boilerplate 5.5
 * Apache 2
 * MySQL
+* Xdebug
 * Docker
+
+You can manage a RestFull API in the fastest, simplest and funniest way! and with open source code dependencies.
+
+However you can contribute for a better performance, the goal is to focus on the code avoiding the configurations and having docker installed.
+
+### Prerequisites
+
+* [Docker](https://docs.docker.com/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+
+## Environments
+
+### Dev or Local Mode
+* docker-compose-dev.yml: generate automatically folders and require-dev dependencies on your local workspace including Xdebug.
+Note: the yaml file has a key called:"XDEBUG_MODE", this yaml by default has the value true (1) to install it.
+
+You can appreciate the dependencies generated automatically on your workspace!
+
+### Play with Docker Mode
+
+[![Play With Docker](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/feature/refactoring/docker-compose-pwd.yml)
+
+* docker-compose-pwd.yml: you can use it to visualize this environment and test it, however you should see the container lists to verify the HEALTHCHECK. 
+
+```bash
+# container lists
+docker ps
+# make sure that the docker dockerlaravelapidev_php_1 or php container is (healthy),
+normally the process begins in starting mode (health: starting),
+```
+### Production Mode
+* docker-compose-prod.yml: if you are going to use this yaml, make sure to generate the migrations before!,you can modify the entrypoint to generate them.
+
+## Deployment
  
-## Docker Environments
+### Docker Environments
+
+Clone this respository and run the following commands based on your orchestrator;
 
 ### Swarm Mode
 Clone this respository and run the following commands:
 ```bash
 cd docker-laravel-api-dev/
-# Creating mount folder
-mkdir .docker/local-mysql-datadir
-docker stack deploy -c docker-compose.yml docker-laravel-api-dev
-# wait for it and follow the docker instructions!...
+docker stack deploy -c docker-compose-dev.yml docker-laravel-api-dev
+# wait for the HEALTHCHECK in healthy mode
 ```
+
 ### Docker Compose
 Clone this respository and run the following commands:
 ```bash
 cd docker-laravel-api-dev/
-docker-compose -f docker-compose.yml up --build -d
-# wait for it to build and follow the docker instructions!...
+docker-compose -f docker-compose-dev.yml up --build -d 
+or to see the logs 
+docker-compose -f docker-compose-dev.yml up 
+# wait for the HEALTHCHECK in healthy mode
 ```
-### PWD 
-With Play with Docker and following the docker instructions, it is easy to deploy and test this environment!
+## Running the tests
 
-[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/docker-compose-pwd.yml)
+You have a [Travis](https://travis-ci.org/) Pipeline to apply Continous Integration, and other technology to test this environment.
 
-## Docker Instructions
+You can modify the runtests.sh from the [scripts folder](https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/scripts/runtests.sh)
 
-### Execute Laravel Pre-requisites
-In the root directory:
-```bash
-# container lists
-docker ps
-# next, execute an interactive bash shell on the php container.
-docker container exec -t -i [dockerlaravelapidev_php_1 or container Id] bash
-```
-#### Run the following commands:
+Insert jobs, instructions, builds in [this pipeline](https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/.travis.yml)
 
-##### Compose and Swarm Mode
-```bash
-composer install && cp .env.example .env && php artisan key:generate && php artisan migrate
-chmod 755 -R storage
-# forward to the port 80, go to localhost and enjoy!...
-```
-##### Play With Docker (PWD)
-```bash
-composer install && php artisan migrate
-# forward to the port 80, go to localhost and enjoy!...
-```
-
-### How to fix Error: laravel.log could not be opened?
-In the root directory or inside the container php:
-<pre><code>chmod -R 775 storage </code></pre>
-* 7 - Owner can write
-* 7 - Group can write
-* 5 - Others cannot write!
-Reference:
-https://stackoverflow.com/questions/23411520/how-to-fix-error-laravel-log-could-not-be-opened
-
-### API Boilerplate Reference
+## API Boilerplate Reference
 https://github.com/francescomalatesta/laravel-api-boilerplate-jwt/blob/master/readme.md

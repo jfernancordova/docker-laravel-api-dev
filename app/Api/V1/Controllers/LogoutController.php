@@ -2,10 +2,8 @@
 
 namespace App\Api\V1\Controllers;
 
-use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
 use Auth;
-use Illuminate\Http\JsonResponse;
 
 class LogoutController extends Controller
 {
@@ -16,7 +14,7 @@ class LogoutController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', []);
+        $this->middleware('jwt.auth', []);
     }
 
     /**
@@ -24,9 +22,11 @@ class LogoutController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout(): JsonResponse
+    public function logout()
     {
         Auth::guard()->logout();
-        ApiResponse::response(200, 'Ok', ['message' => 'Successfully logged out']);
+
+        return response()
+            ->json(['message' => 'Successfully logged out']);
     }
 }
