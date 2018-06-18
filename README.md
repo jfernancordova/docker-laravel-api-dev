@@ -9,12 +9,12 @@
 * Xdebug
 * Docker
 
-### Environments
+## Environments
 
 * docker-compose-dev.yml: generate automatically folders and require-dev dependencies on your local workspace including Xdebug, however the yaml file has a key called:
 "XDEBUG_MODE", this yaml by default has the value true (1) to install it.
 
-* docker-compose-pwd.yml: you can use it in [![Play With Docker](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/feature/refactoring/docker-compose-pwd.yml), to visualize this environment and test it, however you should see the container lists to verify the HEALTHCHECK. 
+* docker-compose-pwd.yml: you can [![Play With Docker](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/feature/refactoring/docker-compose-pwd.yml), to visualize this environment and test it, however you should see the container lists to verify the HEALTHCHECK. 
 
 ```bash
 # container lists
