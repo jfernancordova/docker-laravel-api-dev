@@ -29,7 +29,7 @@ You can appreciate the dependencies generated automatically on your workspace!
 
 ### Play with Docker Mode
 
-[![Play With Docker](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/feature/refactoring/docker-compose-pwd.yml)
+[![Play With Docker](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/docker-compose-pwd.yml)
 
 * docker-compose-pwd.yml: you can use it to visualize this environment and test it, however you should see the container lists to verify the HEALTHCHECK. 
 
