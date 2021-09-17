@@ -11,7 +11,7 @@
 
 You can manage a RestFull API in the fastest, simplest and funniest way! and with open source code dependencies.
 
-However you can contribute for a better performance, the goal is to focus on the code avoiding the configurations and having docker installed.
+However, you can contribute for a better performance, the goal is to focus on the code avoiding the configurations and having docker installed.
 
 ### Prerequisites
 
@@ -45,10 +45,10 @@ normally the process begins in starting mode (health: starting),
  
 ### Docker Environments
 
-Clone this respository and run the following commands based on your orchestrator;
+Clone this repository and run the following commands based on your orchestrator;
 
 ### Swarm Mode
-Clone this respository and run the following commands:
+Clone this repository and run the following commands:
 ```bash
 cd docker-laravel-api-dev/
 docker stack deploy -c docker-compose-dev.yml docker-laravel-api-dev
@@ -56,7 +56,7 @@ docker stack deploy -c docker-compose-dev.yml docker-laravel-api-dev
 ```
 
 ### Docker Compose
-Clone this respository and run the following commands:
+Clone this repository and run the following commands:
 ```bash
 cd docker-laravel-api-dev/
 docker-compose -f docker-compose-dev.yml up --build -d 
@@ -66,7 +66,7 @@ docker-compose -f docker-compose-dev.yml up
 ```
 ## Running the tests
 
-You have a [Travis](https://travis-ci.org/) Pipeline to apply Continous Integration, and other technology to test this environment.
+You have a [Travis](https://travis-ci.org/) Pipeline to apply Continuous Integration, and other technology to test this environment.
 
 You can modify the runtests.sh from the [scripts folder](https://raw.githubusercontent.com/jfernancordova/docker-laravel-api-dev/master/scripts/runtests.sh)
 
