@@ -1,6 +1,5 @@
 # Laravel API Boilerplate Dockerized
 
-[![Build Status](https://travis-ci.org/jfernancordova/docker-laravel-api-dev.svg?branch=master)](https://travis-ci.org/jfernancordova/docker-laravel-api-dev)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 * API Laravel Boilerplate 5.5
